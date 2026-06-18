@@ -34,8 +34,8 @@ pipeline {
     stage('Tag Container Image') {
       agent { label 'controller' }
       steps {
-        sh 'docker image build -t myhello:v1 multicampus23/myhello:v$BUILD_NUMBER' // Tagging with build number
-        sh 'docker image build -t myhello:v1 multicampus23/myhello:v$BUILD_NUMBER:latest' // Tagging with latest
+        sh 'docker image tag -t myhello:v1 multicampus23/myhello:v$BUILD_NUMBER' // Tagging with build number
+        sh 'docker image tag -t myhello:v1 multicampus23/myhello:v$BUILD_NUMBER:latest' // Tagging with latest
       }
     }
     stage('Push Container Image') {
